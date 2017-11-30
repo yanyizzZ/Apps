@@ -20,7 +20,7 @@ namespace App.IBLL
         /// <param name="errors">持久的错误信息</param>
         /// <param name="model">模型</param>
         /// <returns>是否成功</returns>
-        bool Create(SysSampleModel model);
+        bool Create(SysSampleModel model,ref ValidationErrors errors);
         /// <summary>
         /// 删除一个实体
         /// </summary>
@@ -48,5 +48,6 @@ namespace App.IBLL
         /// <param name="id">主键ID</param>
         /// <returns>是否存在</returns>
         bool IsExist(string id);
+
     }
 }

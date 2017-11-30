@@ -39,5 +39,31 @@ namespace App.BLL
         {
             return logRepository.GetById(id);
         }
+
+
+        public bool Create(SysLog model)
+        {
+            try
+            {
+                SysLog entity = logRepository.GetById(model.Id);
+                if (entity != null)
+                {
+                    return false;
+                }
+                if (logRepository.Create(model) == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //ExceptionHander.WriteException(ex);
+                return false;
+            }
+        }
     }
 }

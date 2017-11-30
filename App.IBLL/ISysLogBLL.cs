@@ -11,5 +11,6 @@ namespace App.IBLL
 	{
 		List<SysLog> GetList(ref GridPager pager, string queryStr);
         SysLog GetById(string id);
+        bool Create(SysLog entity);
 	} 
 }

@@ -223,9 +223,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SysExceptionController.cs" />
     <Compile Include="Controllers\SysLogController.cs" />
     <Compile Include="Controllers\SysSampleController.cs" />
+    <Compile Include="Core\ExtendMvcHtml.cs" />
+    <Compile Include="Core\LogHandler.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -470,6 +474,7 @@
     <Content Include="Content\tree\css\images\tree\loading.gif" />
     <Content Include="Content\tree\css\tree.css" />
     <Content Include="Global.asax" />
+    <Content Include="logInfo.txt" />
     <Content Include="Scripts\easyui\easyloader.js" />
     <Content Include="Scripts\easyui\jquery-1.8.0.min.js" />
     <Content Include="Scripts\easyui\locale\easyui-lang-af.js" />
@@ -603,6 +608,10 @@
       <Project>{bb073347-2959-4783-bede-3d49975d43d9}</Project>
       <Name>App.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.DAL\App.DAL.csproj">
+      <Project>{dba5cbd6-5669-4fe5-9256-ba81fb3171d0}</Project>
+      <Name>App.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.IBLL\App.IBLL.csproj">
       <Project>{908d2bbb-2639-4cf3-9e47-912ea10de657}</Project>
       <Name>App.IBLL</Name>
@@ -632,6 +641,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\SysLog\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysException\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysException\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysException\Error.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

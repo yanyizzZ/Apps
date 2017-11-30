@@ -21,8 +21,11 @@ namespace App.Core
             container.RegisterType<IHomeBLL, HomeBLL>();
             container.RegisterType<IHomeRepository, HomeRepository>();
             //日志
-            container.RegisterType<IHomeBLL, HomeBLL>();
-            container.RegisterType<IHomeRepository, HomeRepository>();
+            container.RegisterType<ISysLogBLL, SysLogBLL>();
+            container.RegisterType<ISysLogRepository, SysLogRepository>();
+            //异常
+            container.RegisterType<ISysExceptionBLL, SysExceptionBLL>();
+            container.RegisterType<ISysExceptionRepository, SysExceptionRepository>();
         }
     }
 }

@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeRepository.cs" />
+    <Compile Include="SysExceptionRepository.cs" />
     <Compile Include="SysLogRepository.cs" />
     <Compile Include="SysSampleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

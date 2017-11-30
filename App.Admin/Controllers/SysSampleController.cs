@@ -12,7 +12,7 @@ using Unity.Attributes;
 using App.Common;
 namespace App.Admin.Controllers
 {
-    public class SysSampleController : Controller
+    public class SysSampleController : BaseController
     {
         //
         // GET: /SysSample/
@@ -21,6 +21,7 @@ namespace App.Admin.Controllers
         /// </summary>
         [Dependency]
         public ISysSampleBLL m_BLL { get; set; }
+        ValidationErrors errors = new ValidationErrors();
         public ActionResult Index()
         {
             return View();
@@ -53,11 +54,19 @@ namespace App.Admin.Controllers
         [HttpPost]
         public JsonResult Create(SysSampleModel model)
         {
-            if (m_BLL.Create(model))
-                return Json(1, JsonRequestBehavior.AllowGet);
+            if (m_BLL.Create(model,ref errors))
+            {
+                LogHandler.WriteServiceLog("虚拟用户", "Id:" + model.Id + ",Name:" + model.Name, "成功", "创建", "样例程序");
+                return Json(JsonHandler.CreateMessage(1, "插入成功"), JsonRequestBehavior.AllowGet);
+            }
             else
-                return Json(0, JsonRequestBehavior.AllowGet);
+            {
+                string ErrorCol = errors.Error;
+                LogHandler.WriteServiceLog("虚拟用户", "Id:" + model.Id + ",Name:" + model.Name + "," + ErrorCol, "失败", "创建", "样例程序");
+                return Json(JsonHandler.CreateMessage(0, "插入失败" + ErrorCol), JsonRequestBehavior.AllowGet);
+            }
         }
+               
         public ActionResult Edit(string id) {
             SysSampleModel entity = m_BLL.GetById(id);
             return View(entity);

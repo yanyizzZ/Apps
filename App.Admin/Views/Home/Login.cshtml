@@ -133,7 +133,11 @@
                             <td style="width: 80px; text-align: right">
                                 验证码：
                             </td>
-                            <td></td>
+                            <td>
+                                <input style="width: 50px" type="text" name="ValidateCode" id="ValidateCode" />
+                                <img id="codeImg" alt="刷新验证码！" style="margin-bottom: -8px; cursor: pointer;" src="@Url.Action("OutCheckCode","Home")" onclick="this.src = this.src + '?id=' + Math.random()" />
+                                <a href="javascript:$('#codeImg').trigger('click')">看不清？</a>
+                            </td>
                         </tr>
 
 

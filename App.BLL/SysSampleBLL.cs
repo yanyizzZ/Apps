@@ -16,6 +16,7 @@ namespace App.BLL
         DB db = new DB();
         [Dependency]
         public ISysSampleRepository Rep { get; set; }
+       
         /// <summary>
         /// 获取列表
         /// </summary>
@@ -101,13 +102,14 @@ namespace App.BLL
         /// <param name="errors">持久的错误信息</param>
         /// <param name="model">模型</param>
         /// <returns>是否成功</returns>
-        public bool Create(SysSampleModel model)
+        public bool Create(SysSampleModel model,ref ValidationErrors errors)
         {
             try
             {
                 SysSample entity = Rep.GetById(model.Id);
                 if (entity != null)
                 {
+                    errors.Add("主键重复");
                     return false;
                 }
                 entity = new SysSample();
@@ -125,6 +127,7 @@ namespace App.BLL
                 }
                 else
                 {
+                    errors.Add("插入失败");
                     return false;
                 }
             }

@@ -79,6 +79,7 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Sys\AccountModel.cs" />
+    <Compile Include="Sys\SysExceptionModel.cs" />
     <Compile Include="Sys\SysLogModel.cs" />
     <Compile Include="Sys\SysSampleModel.cs" />
   </ItemGroup>

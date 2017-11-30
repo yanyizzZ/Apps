@@ -11,7 +11,7 @@ namespace App.Admin.Models
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("DefaultConnection")
+            : base("DB")
         {
         }
 
